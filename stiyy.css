@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #ffcbd5 0%, #ffd8c3 100%); /* Gorgeous warm pink gradient */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background canvas layer for hearts */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    opacity: 0.6;
+    animation: floatUp 6s linear forwards;
+}
+
+/* Centered Interactive Panel Card */
+.popup-box {
+    background-color: rgba(255, 255, 255, 0.92); /* Frosted semi-white look */
+    padding: 35px 30px;
+    border-radius: 24px; /* Super smooth sleek corners */
+    box-shadow: 0 12px 32px rgba(231, 138, 154, 0.25);
+    text-align: center;
+    width: 380px;
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.emoji-container {
+    font-size: 50px;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.main-title {
+    font-size: 26px;
+    color: #d6336c; /* Rich romantic rose pink text */
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.sub-title {
+    font-size: 13.5px;
+    color: #704852;
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+}
+
+/* Alignment rules for the choices interaction block */
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 50px; /* Locked alignment track area */
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Shared baseline parameters for both choices */
+button {
+    padding: 12px 22px;
+    border-radius: 25px;
+    border: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s;
+}
+
+/* Yes selection focus highlighting accent */
+#yesBtn {
+    background-color: #ff3366; /* Vibrant attention pink */
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+}
+
+#yesBtn:hover {
+    background-color: #e62253;
+    transform: scale(1.05);
+}
+
+/* The runaway target styling */
+#noBtn {
+    background-color: #f1f3f5;
+    color: #495057;
+    position: relative; /* Handled programmatically via JS when targeted */
+    z-index: 15;
+}
+
+.footer-note {
+    font-size: 11px;
+    color: #a38991;
+    margin-top: 15px;
+}
+
+/* Keyframe animations */
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 0.7; }
+    100% { transform: translateY(-115vh) scale(1.2); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
